@@ -1,0 +1,50 @@
+Internet Explorer Thumbnail Generator
+
+by Adam Hooper <adam@adamhooper.com>
+
+PURPOSE
+
+Renders the given URL in Internet Explorer and outputs the result as a PNG
+(which, incidentally, may be taller than the 1024x768 at which the page is
+rendered).
+
+USAGE
+
+thumbnail-generator.exe [URL] [PNG output filename]
+
+BUILDING
+
+1. Download and install the (free) Microsoft .NET 2.0 SDK.
+2. Open the SDK command-line and "cd" to this directory.
+3. Run "nmake".
+
+The output file, "thumbnail-generator.exe", will be generated.
+
+LIMITATIONS
+
+- The program must be run within a user's session.
+- All screenshots are 1024 pixels wide.
+- During execution, a large, visible window will be opened. (This is not a
+  serious problem in testing environments in which users do not need
+  mouse/keyboard interaction with the computer.)
+- The render only happens after the page is loaded--that is, all images have
+  been downloaded. This makes the process rather slow if CSS or image files
+  are linked into the page.
+- You can only render a single file in each execution (meaning the startup and
+  shutdown overhead must be incurred for every render).
+
+LICENSE
+
+This program is the fruit of a long, twisted path of Google searches and
+doggedness. I copy/pasted ruthlessly from public forums. I like to think that
+the resulting source code is public-domain or at least open-source in some
+general sense. If I am wrong, please contact me at adam@adamhooper.com and I
+will quickly do all I can to ensure an equivalent program exists in the
+public domain.
+
+(This should help to explain why this source code is so darned ugly, too.)
+
+BUGS/SUGGESTIONS
+
+Contact me at adam@adamhooper.com. I promise I'll at least try to respond.
+(I do not, however, promise to go out of my way to solve your problems.)

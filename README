@@ -1,0 +1,66 @@
+HTML to PNG Server
+
+by Adam Hooper <adam@adamhooper.com>
+
+PURPOSE
+
+This program accepts HTML and outputs PNG representations of it.
+
+FEATURES
+
+- Runs as an HTTP server on port 20558
+- Renders with multiple strategies:
+  - Internet Explorer on Windows
+  - Firefox 3 on Ubuntu Linux
+- Can crop images from different rendering strategies so their outputs
+  correspond, ideally pixel-for-pixel.
+
+REQUIREMENTS
+
+You must have a Java 6.0 runtime available. Individual rengering strategies
+have thier own requirements. (Peruse their source code for details.)
+
+USAGE
+
+This server is intended for a distributed environment (or, at least, an
+environment which you foresee to be distributed in the future.) The server
+should be run on each "renderer" node--that is, the computer which will
+perform the actual rendering, as opposed to the client which will manipulate
+those results.
+
+To start the server: java -jar /path/to/html_to_png_server.jar
+
+A client may request a PNG from the server by sending a utf-8 POST request to
+"http://node.domain.or.ip.address:20558/STRATEGY", where "STRATEGY" is one of
+"ff3-linux", "ie", or anything else registered in HtmlToPngHttpServer.java. The
+POST request should consist exclusively of utf8-encoded HTML; the server will
+respond with PNG data.
+
+CLIENTS
+
+Known clients include:
+
+- html_render, by Adam Hooper
+  http://github.com/adamh/html_render/tree/master
+    A Ruby library which provides an API to html_to_png_server (including
+    multi-threaded, distributed rendering) with special classes for integrating
+    with unit testing libraries.
+
+DEVELOPMENT
+
+The code is fairly (though by no means expertly) organized. Open this folder in
+Eclipse and enjoy yourself.
+
+Feel free to send me any patches, generated through "git format-patch" or,
+slightly less helpfully, "diff -u". I will concern myself with regenerating
+"ie-thumbnail-generator.exe" and "html_to_png_server.jar".
+
+As far as I can see, the client/server API will not change. As for this
+server's internals: no APIs should be considered stable.
+
+LICENSE
+
+I believe in software freedom, and that includes the freedom for that software
+to be relicensed or otherwise taken out of my control. This code is all
+released under the Public Domain, or as to Public Domain as is legally
+sensible. I declare myself absolved of my copyright on this code.

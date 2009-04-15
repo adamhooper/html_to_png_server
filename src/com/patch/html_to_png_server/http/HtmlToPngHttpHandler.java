@@ -20,6 +20,15 @@ public class HtmlToPngHttpHandler implements HttpHandler {
 	}
 
 	public void handle(HttpExchange httpExchange) throws IOException {
+		try {
+			doHandle(httpExchange);
+		} catch (IOException e) {
+			e.printStackTrace();
+			throw(e);
+		}
+	}
+	
+	private void doHandle(HttpExchange httpExchange) throws IOException {
 		AbstractRenderer renderer;
 		try {
 			renderer = renderClass.newInstance();
