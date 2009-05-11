@@ -64,3 +64,6 @@ I believe in software freedom, and that includes the freedom for that software
 to be relicensed or otherwise taken out of my control. This code is all
 released under the Public Domain, or as to Public Domain as is legally
 sensible. I declare myself absolved of my copyright on this code.
+
+Exception: Files in the vendor/ directory were not written by me; I have tried
+to faithfully copy their licenses here.

@@ -108,7 +108,7 @@ namespace WebPageThumbnailGenerator
                 }
             }
 
-            this.Close();
+            this.Dispose();
         }
 
         #endregion
