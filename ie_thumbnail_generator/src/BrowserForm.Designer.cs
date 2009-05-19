@@ -33,25 +33,17 @@ namespace WebPageThumbnailGenerator
             // 
             // _webBrowser
             // 
-            this._webBrowser.Location = new System.Drawing.Point(0, 0);
-            this._webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this._webBrowser.Name = "_webBrowser";
             this._webBrowser.ScriptErrorsSuppressed = true;
             this._webBrowser.ScrollBarsEnabled = false;
             this._webBrowser.Size = new System.Drawing.Size(800, 600);
-            this._webBrowser.TabIndex = 0;
             this._webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.OnDocumentCompleted);
             // 
             // BrowserForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(792, 573);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this._webBrowser);
-            this.Name = "BrowserForm";
             this.ShowInTaskbar = false;
-            this.Text = "BrowserForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
             this.ResumeLayout(false);
 
         }
