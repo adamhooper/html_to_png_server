@@ -11,7 +11,8 @@ FEATURES
 - Runs as an HTTP server on port 20558
 - Renders with multiple strategies:
   - Internet Explorer on Windows
-  - Firefox 3 on Ubuntu Linux
+  - Gecko on Ubuntu Linux
+  - Firefox 3.0 and above on all platforms
 - Can crop images from different rendering strategies so their outputs
   correspond, ideally pixel-for-pixel.
 
@@ -45,6 +46,51 @@ Known clients include:
     A Ruby library which provides an API to html_to_png_server (including
     multi-threaded, distributed rendering) with special classes for integrating
     with unit testing libraries.
+
+STRATEGIES
+
+  IE (http://server/ie)
+
+  how it works: it extracts a custom executable into a temporary directory and
+                executes it.
+  requires: .NET 2.0 platform or above
+  how it could improve:
+    - it could be sped up
+    - it could be made to work without logging on (for a graphics context)
+    - its license could be clarified (it is a copy/paste mix-and-match from
+      Internet forums)
+  tips: use a different computer (or virtual machine) for each different
+        version of Internet Explorer.
+
+  GECKO ON LINUX (http://server/ff3-linux)
+
+  how it works: it executes "gnome-web-photo", assumed to be in the user's path
+  requires: the "gnome-web-photo" Ubuntu package (or equivalent)
+  how it could improve:
+    - it could be sped up
+  tips: run this Java server in an Xvfb instance to avoid the need to log in
+        (for instance, "xvfb-run java -jar html_to_png_server/html_to_png_server.jar")
+
+  FIREFOX THROUGH MOZREPL (http://server/mozrepl)
+
+  how it works: it acts (kind of) like a proxy to a MozRepl screenshot server.
+  requires: "mozrepl" Firefox extension - http://wiki.github.com/bard/mozrepl
+  installation:
+    1. Install "mozrepl" from http://wiki.github.com/bard/mozrepl
+    2. Copy vendor/moz-repl-screenshot-server.js somewhere local and permanent
+    3. Open Firefox and browse to "about:config"
+    4. Set "extensions.mozrepl.defaultInteractor" to "screenshot"
+    5. Set "extensions.mozrepl.initUrl" to
+       "file:///.../moz-repl-screenshot-server.js" (where "..." is the location
+       you chose to save the file in Step 2).
+    6. Set "extensions.mozrepl.autoStart" to "true"
+    7. Click Tools -> MozRepl -> Start
+       path you chose to save 
+  how it could improve:
+    - installation could be made simpler
+    - it could be made not to require a running Firefox instance
+    - it could be made to work without logging on (for a graphics context). (On
+      UNIX-like systems, at least, "xvfb-run" can circumvent this.)
 
 DEVELOPMENT
 
