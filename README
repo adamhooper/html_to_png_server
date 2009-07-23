@@ -92,10 +92,23 @@ STRATEGIES
     - it could be made to work without logging on (for a graphics context). (On
       UNIX-like systems, at least, "xvfb-run" can circumvent this.)
 
+  SAFARI ON OS X (http://server/webkit2png)
+
+  how it works: it extracts webkit2png into a temporary directory and executes
+                it. See http://github.com/paulhammond/webkit2png
+  requires: See http://github.com/paulhammond/webkit2png
+            - On OSX, use "Java Preferences" and ensure you are on Java 6
+            - Aside from that, everything should work by default
+            - OSX is notoriously difficult to run in a VM, so "a Mac" is one of
+              the requirements
+  how it could improve:
+    - it could be sped up
+    - it could be made to work without logging on (for a graphics context)
+
 DEVELOPMENT
 
-The code is fairly (though by no means expertly) organized. Open this folder in
-Eclipse and enjoy yourself.
+The code is fairly (though by no means expertly) organized, though cut/pasted
+too heavily. Open this folder in Eclipse and enjoy yourself.
 
 Feel free to send me any patches, generated through "git format-patch" or,
 slightly less helpfully, "diff -u". I will concern myself with regenerating

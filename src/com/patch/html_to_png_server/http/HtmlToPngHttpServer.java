@@ -10,6 +10,7 @@ import com.patch.html_to_png_server.renderers.AbstractRenderer;
 import com.patch.html_to_png_server.renderers.FF3LinuxRenderer;
 import com.patch.html_to_png_server.renderers.IERenderer;
 import com.patch.html_to_png_server.renderers.MozReplRenderer;
+import com.patch.html_to_png_server.renderers.Webkit2PngRenderer;
 import com.sun.net.httpserver.HttpServer;
 
 public class HtmlToPngHttpServer {
@@ -21,6 +22,7 @@ public class HtmlToPngHttpServer {
 		strategies.put("/ff3-linux", FF3LinuxRenderer.class);
 		strategies.put("/mozrepl", MozReplRenderer.class);
 		strategies.put("/ie", IERenderer.class);
+		strategies.put("/webkit2png", Webkit2PngRenderer.class);
 	}
 	
 	public HtmlToPngHttpServer(Options options) {

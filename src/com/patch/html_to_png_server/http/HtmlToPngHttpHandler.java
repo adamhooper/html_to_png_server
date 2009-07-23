@@ -21,7 +21,11 @@ public class HtmlToPngHttpHandler implements HttpHandler {
 
 	public void handle(HttpExchange httpExchange) throws IOException {
 		try {
+			System.out.printf(
+					"Begin request from %s\n", httpExchange.getRemoteAddress());
 			doHandle(httpExchange);
+			System.out.printf(
+					"End request from %s\n", httpExchange.getRemoteAddress());
 		} catch (IOException e) {
 			e.printStackTrace();
 			throw(e);
